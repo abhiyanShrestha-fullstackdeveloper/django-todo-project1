@@ -18,3 +18,8 @@ def create(request):
         Todo.objects.create(name=name,description=description,status=status) # running query orm
         return redirect('home')
     return render(request,'create.html')
+
+def edit(request,pk):
+    todo = Todo.objects.get(id=pk)
+    data = {'todo': todo}
+    return render(request,'edit.html',context=data)
