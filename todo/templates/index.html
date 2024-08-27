@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <h1>This is homepage</h1>
+    {% include 'nav.html' %}
     <br>
     <table class="table">
         <thead>
@@ -28,7 +28,7 @@
               <td>{{todo.name}}</td>
               <td>{{todo.description}}</td>
               <td>{{todo.status}}</td>
-              <td><a href = "{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+              <td><a href = "{% url 'edit' pk=todo.id %}"><button type="button" class="btn btn-warning">Edit</button></a><a href = "{% url 'delete' pk=todo.id %}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
           {% endfor %}
       </table>
